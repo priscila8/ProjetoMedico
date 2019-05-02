@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sistema de Gerenciamento de Consultas</title>
+  <link href="https://fonts.googleapis.com/css?family=Aldrich" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="icon" sizes="192x192" href="img/user.png">
+  <style>
+  #draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+  #verde { width: 210px; height: 190px; padding: 0.5em; float: left; margin: 10px; background-color: chartreuse;}
+  #amarelo { width: 210px; height: 190px; padding: 0.5em; float: left; margin: 10px; background-color: gold;}
+  #vermelho { width: 210px; height: 190px; padding: 0.5em; float: left; margin: 10px; background-color: crimson;}
+  p,h1{font-family: 'Aldrich', sans-serif};
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+
+<body class="bg-light">
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">SGDC</h1>
+    <p class="lead">Sistema de Gerenciamento de Consultas...</p>
+  </div>
+</div>
+
+<br><!-- gambiarra --> 
+
+<input type="text" id="t1" placeholder="Insira um usuario aqui.." style="margin-left: 20px; width: 390px; height: 38px;"/>
+
+<button class="btn btn-secondary" id="b1" onclick="insert()" style="margin-left: 7px; height: 40px;">inserir</button>
+<br><br><!-- gambiarra -->
+
+
+<div id="verde">
+<strong style="font-size: 13px; color: #009688">Prioridade: Normal</strong>
+</div>
+<div id="amarelo">
+<strong style="font-size: 13px; color: #fd7e14">Prioridade: Média</strong>
+</div>	
+<div id="vermelho">
+<strong style="font-size: 13px; color: #e67070">Prioridade: Alta</strong>
+</div>
+
+
+<script>
+/*funcao que insere componentes*/
+function insert(){
+  var x = document.getElementById('t1').value;
+  $("body").append("<p><strong>"+x+"<strong></p>");
+  document.getElementById('t1').value = '';
+  $(function(){
+	$("p").draggable();
+  });
+}
+	
+
+</script>
+
+
+</body>
+</html>
